@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questionário Vocacional - Senac</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- Header -->
+  {% include '_header.html' %}
+
+  <!-- Título -->
+  <section class="text-center mt-10 px-4">
+    <h1 class="text-3xl font-bold text-blue-900">Questionário </h1>
+    </section>
+  
+  <section class="bg-blue-900 text-white p-8 rounded-xl mx-4 my-8 flex flex-col lg:flex-row items-center gap-8">
+    <div class="flex-1 text-center lg:text-left">
+      <h2 class="text-xl font-bold mb-2">Antes de começarmos</h2>
+      <p>
+        Responda a apenas 10 perguntas rápidas sobre seus interesses, habilidades e objetivos. Com base nas suas respostas, nosso sistema de inteligência artificial irá recomendar os cursos mais adequados para o seu perfil.
+      </p>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+ <form action="{{ url_for('processar_formulario') }}" method="POST" class="max-w-4xl mx-auto mt-8 px-4 space-y-6 pb-12">
+
+  <div>
+    <p class="font-semibold text-blue-900">1. O que você mais gosta de fazer no seu tempo livre?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q1" value="Resolver quebra-cabeças, jogos de lógica ou programar" class="mr-2">Resolver quebra-cabeças, jogos de lógica ou programar</label>
+      <label class="block"><input type="radio" name="q1" value="Ajudar amigos a resolverem problemas pessoais" class="mr-2">Ajudar amigos a resolverem problemas pessoais</label>
+      <label class="block"><input type="radio" name="q1" value="Criar desenhos, músicas ou escrever histórias" class="mr-2">Criar desenhos, músicas ou escrever histórias</label>
+      <label class="block"><input type="radio" name="q1" value="Fazer experiências, observar a natureza ou ler sobre ciência" class="mr-2">Fazer experiências, observar a natureza ou ler sobre ciência</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">2. Qual das atividades abaixo parece mais divertida para você?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q2" value="Participar de um trabalho voluntário ou cuidar de alguém" class="mr-2">Participar de um trabalho voluntário ou cuidar de alguém</label>
+      <label class="block"><input type="radio" name="q2" value="Pintar um quadro ou dirigir uma peça de teatro" class="mr-2">Pintar um quadro ou dirigir uma peça de teatro</label>
+      <label class="block"><input type="radio" name="q2" value="Investigar como funcionam as coisas ou fazer uma pesquisa" class="mr-2">Investigar como funcionam as coisas ou fazer uma pesquisa</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">3. Qual dessas frases te representa melhor?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q3" value="Gosto de entender como tudo funciona." class="mr-2">"Gosto de entender como tudo funciona."</label>
+      <label class="block"><input type="radio" name="q3" value="Gosto de fazer a diferença na vida das pessoas." class="mr-2">"Gosto de fazer a diferença na vida das pessoas."</label>
+      <label class="block"><input type="radio" name="q3" value="Preciso expressar minhas ideias de forma criativa." class="mr-2">"Preciso expressar minhas ideias de forma criativa."</label>
+      <label class="block"><input type="radio" name="q3" value="Tenho curiosidade sobre o mundo e quero explorar o desconhecido." class="mr-2">"Tenho curiosidade sobre o mundo e quero explorar o desconhecido."</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">4. Se você fosse organizar um evento, qual seria seu papel ideal?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q4" value="Cuidar da tecnologia e da parte prática" class="mr-2">Cuidar da tecnologia e da parte prática</label>
+      <label class="block"><input type="radio" name="q4" value="Receber as pessoas e garantir que se sintam bem" class="mr-2">Receber as pessoas e garantir que se sintam bem</label>
+      <label class="block"><input type="radio" name="q4" value="Criar o visual, a identidade e o conteúdo artístico" class="mr-2">Criar o visual, a identidade e o conteúdo artístico</label>
+      <label class="block"><input type="radio" name="q4" value="Fazer pesquisas para garantir que tudo saia como o planejado" class="mr-2">Fazer pesquisas para garantir que tudo saia como o planejado</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">5. Qual tipo de matéria você mais gostava na escola?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q5" value="Matemática ou Informática" class="mr-2">Matemática ou Informática</label>
+      <label class="block"><input type="radio" name="q5" value="Sociologia ou Biologia" class="mr-2">Sociologia ou Biologia</label>
+      <label class="block"><input type="radio" name="q5" value="Artes ou Literatura" class="mr-2">Artes ou Literatura</label>
+      <label class="block"><input type="radio" name="q5" value="Física ou Química" class="mr-2">Física ou Química</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">6. O que mais te motiva em uma profissão?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q6" value="Resolver problemas e usar raciocínio lógico" class="mr-2">Resolver problemas e usar raciocínio lógico</label>
+      <label class="block"><input type="radio" name="q6" value="Ajudar pessoas e promover o bem-estar" class="mr-2">Ajudar pessoas e promover o bem-estar</label>
+      <label class="block"><input type="radio" name="q6" value="Ter liberdade para criar e inovar" class="mr-2">Ter liberdade para criar e inovar</label>
+      <label class="block"><input type="radio" name="q6" value="Descobrir coisas novas e entender como o mundo funciona" class="mr-2">Descobrir coisas novas e entender como o mundo funciona</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">7. Você prefere trabalhar:</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q7" value="Sozinho, com foco e concentração" class="mr-2">Sozinho, com foco e concentração</label>
+      <label class="block"><input type="radio" name="q7" value="Com pessoas, em equipe" class="mr-2">Com pessoas, em equipe</label>
+      <label class="block"><input type="radio" name="q7" value="De forma livre, com liberdade de expressão" class="mr-2">De forma livre, com liberdade de expressão</label>
+      <label class="block"><input type="radio" name="q7" value="Investigando, testando e analisando hipóteses" class="mr-2">Investigando, testando e analisando hipóteses</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">8. Como você reage diante de um desafio?</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q8" value="Analiso a situação e tento encontrar uma solução lógica" class="mr-2">Analiso a situação e tento encontrar uma solução lógica</label>
+      <label class="block"><input type="radio" name="q8" value="Busco apoio em outras pessoas e penso no impacto do problema" class="mr-2">Busco apoio em outras pessoas e penso no impacto do problema</label>
+      <label class="block"><input type="radio" name="q8" value="Tento ver o desafio de forma criativa" class="mr-2">Tento ver o desafio de forma criativa</label>
+      <label class="block"><input type="radio" name="q8" value="Pesquiso e estudo para entender melhor a situação" class="mr-2">Pesquiso e estudo para entender melhor a situação</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">9. Se você pudesse escolher um projeto para liderar, seria:</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q9" value="Criar um aplicativo ou sistema inteligente" class="mr-2">Criar um aplicativo ou sistema inteligente</label>
+      <label class="block"><input type="radio" name="q9" value="Organizar uma campanha social" class="mr-2">Organizar uma campanha social</label>
+      <label class="block"><input type="radio" name="q9" value="Produzir um curta-metragem ou escrever um livro" class="mr-2">Produzir um curta-metragem ou escrever um livro</label>
+      <label class="block"><input type="radio" name="q9" value="Fazer uma descoberta científica" class="mr-2">Fazer uma descoberta científica</label>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-blue-900">10. Em um grupo, você costuma ser:</p>
+    <div class="mt-2 space-y-1">
+      <label class="block"><input type="radio" name="q10" value="O que resolve problemas técnicos" class="mr-2">O que resolve problemas técnicos</label>
+      <label class="block"><input type="radio" name="q10" value="O que acolhe e motiva os outros" class="mr-2">O que acolhe e motiva os outros</label>
+      <label class="block"><input type="radio" name="q10" value="O que tem ideias fora da caixa" class="mr-2">O que tem ideias fora da caixa</label>
+      <label class="block"><input type="radio" name="q10" value="O que pesquisa e verifica as informações" class="mr-2">O que pesquisa e verifica as informações</label>
+    </div>
+  </div>
+
+  <div class="text-center pt-4">
+    <button type="submit" class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition">
+      Enviar Respostas
+    </button>
+  </div>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursos Disponíveis - Senac</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  {% include '_header.html' %}
+  
+  
+  <!-- Título -->
+  <section class="text-center mt-10 px-4">
+    <h1 class="text-3xl font-bold text-blue-900">Cursos Disponíveis</h1>
+    <p class="text-blue-700 mt-2 max-w-2xl mx-auto">Filtre por categoria.</p>
+  </section>
+
+  <!-- Filtro -->
+  <div class="max-w-4xl mx-auto mt-6 px-4">
+    <label class="block text-sm font-medium text-blue-900 mb-2">Filtrar por categoria:</label>
+    <select id="categoria" class="w-full px-4 py-2 border border-gray-300 rounded" onchange="filtrarCursos()">
+      <option value="todos">Todos</option>
+      <option value="tecnologia">Tecnologia</option>
+      <option value="saude">Saúde</option>
+      <option value="design">Design</option>
+    </select>
+  </div>
+
+  <!-- Lista de cursos -->
+  <section id="cursosContainer" class="max-w-6xl mx-auto px-4 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"></section>
+
+  <!-- Paginação -->
+  <div class="flex justify-center my-10 space-x-2">
+    <button onclick="paginaAnterior()" class="px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">Anterior</button>
+    <button onclick="proximaPagina()" class="px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">Próxima</button>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const cursos = [
+      { titulo: 'Desenvolvimento Web', descricao: 'Aprenda HTML, CSS, JS e frameworks.', categoria: 'tecnologia' },
+      { titulo: 'Técnico em Enfermagem', descricao: 'Atue na área da saúde com ética.', categoria: 'saude' },
+      { titulo: 'Design Gráfico', descricao: 'Crie projetos visuais para mídia.', categoria: 'design' },
+      { titulo: 'Ciência de Dados', descricao: 'Trabalhe com dados e inteligência artificial.', categoria: 'tecnologia' },
+      { titulo: 'Cuidador de Idosos', descricao: 'Apoie a saúde e bem-estar dos idosos.', categoria: 'saude' },
+      { titulo: 'Edição de Vídeo', descricao: 'Produza conteúdo audiovisual criativo.', categoria: 'design' },
+    ];
+
+    let pagina = 0;
+    const porPagina = 6;
+
+    function filtrarCursos() {
+      pagina = 0;
+      renderizarCursos();
+    }
+
+    function renderizarCursos() {
+      const categoria = document.getElementById('categoria').value;
+      const cursosFiltrados = categoria === 'todos'
+        ? cursos
+        : cursos.filter(c => c.categoria === categoria);
+
+      const inicio = pagina * porPagina;
+      const cursosPaginados = cursosFiltrados.slice(inicio, inicio + porPagina);
+
+      const container = document.getElementById('cursosContainer');
+      container.innerHTML = cursosPaginados.map(curso => `
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h2 class="text-xl font-bold text-blue-900 mb-2">${curso.titulo}</h2>
+          <p class="text-gray-700 mb-4">${curso.descricao}</p>
+          <a href="matricula.html" class="text-white bg-blue-900 px-4 py-2 rounded hover:bg-blue-800 inline-block">Matricule-se</a>
+        </div>
+      `).join('');
+    }
+
+    function paginaAnterior() {
+      if (pagina > 0) {
+        pagina--;
+        renderizarCursos();
+      }
+    }
+
+    function proximaPagina() {
+      const categoria = document.getElementById('categoria').value;
+      const cursosFiltrados = categoria === 'todos' ? cursos : cursos.filter(c => c.categoria === categoria);
+      if ((pagina + 1) * porPagina < cursosFiltrados.length) {
+        pagina++;
+        renderizarCursos();
+      }
+    }
+
+    // Inicial
+    renderizarCursos();
+  </script>
+
+    <!-- conteiner azul -->
+<section class="bg-blue-900 text-white p-8 rounded-xl mx-4 my-8 flex flex-col lg:flex-row items-center gap-8">
+    <div class="flex-1 text-center lg:text-left">
+      <h2 class="text-xl font-bold mb-2">Atenção Matrículas Presenciais!</h2>
+      <p class="mb-4">
+        Informamos que as matrículas para os cursos do Senac Barbacena são realizadas exclusivamente de forma presencial, diretamente na unidade. Não realizamos matrículas online.
+      </p>
+      <p class="mb-2">
+        <strong>Horário de atendimento:</strong><br>
+        Segunda a sexta-feira: das 8h às 22h30<br>
+        Sábados: das 8h às 12h
+      </p>
+      <p class="mb-2">
+        <strong>Endereço:</strong><br>
+        Praça Pedro Teixeira, 48 subsolo - Centro, Barbacena - MG, 36200-001<br>
+        <a href="https://maps.app.goo.gl/pib1nNc7y5AGnG976" class="underline text-white hover:text-gray-200" target="_blank" rel="noopener">Ver no Google Maps</a>
+      </p>
+      <p class="mb-2">
+        <strong>Mais informações:</strong><br>
+        E-mail: <a href="mailto:barbacena@mg.senac.br" class="underline text-white hover:text-gray-200">barbacena@mg.senac.br</a>
+        <br> Telefone: (32) 3052-1752
+      </p>
+      <p>
+        Agradecemos a compreensão e estamos à disposição para atendê-lo pessoalmente.
+      </p>
+    </div>
+  </section>
+</body>
+</html>

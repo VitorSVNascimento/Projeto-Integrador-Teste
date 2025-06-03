@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Senac - Recomendação de Cursos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- Header -->
+  {% include '_header.html' %}
+
+  <!-- Destaque -->
+  <section class="bg-blue-900 text-white p-8 rounded-xl mx-4 my-8 flex flex-col lg:flex-row items-center gap-8">
+    <div class="flex-1 text-center lg:text-left">
+      <h2 class="text-xl font-bold mb-2">Descubra novas oportunidades com o poder da tecnologia</h2>
+      <p>
+        Nosso sistema utiliza inteligência artificial para entender seus interesses, habilidades e objetivos, oferecendo recomendações personalizadas que ajudam você a escolher o curso certo no momento certo.
+      </p>
+    </div>
+    <div class="flex-1">
+      <!-- Ilustração representativa -->
+      <img src="{{ url_for('static', filename='images/img home.png') }}" alt="IA e estudante" class="w-64 mx-auto">
+
+    </div>
+  </section>
+
+  <!-- Chamada para ação -->
+  <section class="text-center px-4">
+    <h3 class="text-2xl text-blue-900 font-bold mb-2">Quer encontrar o curso ideal para você?</h3>
+    <p class="text-blue-800 mb-4 max-w-xl mx-auto">
+      Clique no botão abaixo e responda um breve questionário. Com base nas suas respostas, nosso sistema com inteligência artificial irá sugerir os cursos que mais combinam com seu perfil e objetivos.
+    </p>
+    <a href="{{ url_for('formulario') }}" 
+      class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition inline-block text-center">
+      Iniciar Questionário
+    </a>
+
+  </section>
+
+  <!-- Barra de busca -->
+  <section class="mt-12 px-4 flex justify-center">
+    <div class="bg-gray-100 rounded-lg p-4 flex w-full max-w-xl shadow">
+      <input type="text" placeholder="Buscar cursos" class="flex-grow px-4 py-2 rounded-l-lg bg-gray-100 focus:outline-none">
+      <button class="bg-blue-900 text-white px-4 rounded-r-lg hover:bg-blue-800 transition">Buscar</button>
+    </div>
+  </section>
+
+</body>
+</html>

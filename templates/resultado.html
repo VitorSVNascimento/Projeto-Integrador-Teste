@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado</title>
+</head>
+<body>
+  <h1>Os cursos recomendados são:</h1>
+  <p>{{ respostas }}</p>
+
+  <hr>
+
+  {% for nome,justificativa in lista %}
+    <h2>{{nome}}</h2>
+    <p>{{justificativa}}</p>
+    <hr>
+  {% endfor %}
+</body>
+</html>
