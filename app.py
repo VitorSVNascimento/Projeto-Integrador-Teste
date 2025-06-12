@@ -5,7 +5,6 @@ from carrerAdvisor import CareerAdvisor
 from cursoresposta import CursoResposta
 from listaCurso import ListaCurso
 import Dao.CursoDAO as cursoDAO
-import pandas as pd
 import unicodedata
 import logging
 from logging.handlers import RotatingFileHandler
