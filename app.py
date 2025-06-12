@@ -6,8 +6,6 @@ from cursoresposta import CursoResposta
 from listaCurso import ListaCurso
 import Dao.CursoDAO as cursoDAO
 import unicodedata
-import logging
-from logging.handlers import RotatingFileHandler
 import os
 
 app = Flask(__name__)
