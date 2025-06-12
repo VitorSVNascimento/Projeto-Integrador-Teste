@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Resultado</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resultado da Pesquisa - Senac</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Os cursos recomendados são:</h1>
-  <p>{{ respostas }}</p>
+<body class="bg-gray-50 font-sans">
 
-  <hr>
+  {% include 'header.html' %}
 
-  {% for nome,justificativa in lista %}
-    <h2>{{nome}}</h2>
-    <p>{{justificativa}}</p>
-    <hr>
-  {% endfor %}
+  <!-- Título -->
+  <section class="text-center mt-10 px-4">
+    <h1 class="text-3xl font-bold text-blue-900">Resultados da Recomendação</h1>
+    <p class="text-blue-700 mt-2 max-w-2xl mx-auto">Com base nas suas respostas, sugerimos os cursos abaixo:</p>
+  </section>
+
+  <!-- Cursos recomendados -->
+  <section id="cursosRecomendados" class="max-w-6xl mx-auto px-4 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+    <!-- Conteúdo gerado dinamicamente -->
+  </section>
+
+  <!-- Grid de cursos -->
+  <section class="max-w-6xl mx-auto px-4 mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  {% for curso in lista_recomendacao %}
+  <div class="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between">
+    <div>
+      <h3 class="text-lg font-bold text-blue-800 mb-2">{{ curso.nome }}</h3>
+      <p class="text-gray-700 text-sm">
+        {{ curso.descricao }}
+      </p>
+    </div>
+    <a href="{{ url_for('matricula') }}" class="mt-4 bg-blue-800 text-white px-4 py-2 rounded-lg text-center hover:bg-orange-500 transition">
+      Veja como Matricule-se
+    </a>
+  </div>
+{% endfor %}
+
 </body>
 </html>

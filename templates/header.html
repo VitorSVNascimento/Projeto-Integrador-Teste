@@ -1,0 +1,35 @@
+<header class="flex flex-wrap items-center justify-between p-4 border-b-2 border-orange-500">
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Senac" class="h-16 mb-2 md:mb-0">
+
+  <!-- Navegação -->
+  <nav class="flex flex-wrap gap-12 font-semibold text-blue-800">
+    <a href="{{ url_for('index') }}" class="hover:underline">Início</a>
+    <a href="{{ url_for('cursos') }}" class="hover:underline">Cursos</a>
+    {% if session.usuario %}
+      <a href="{{ url_for('planilha') }}" class="hover:underline">Planilha</a>
+    {% endif %}
+    <a href="{{ url_for('sobre') }}" class="hover:underline">Sobre</a>
+  </nav>
+
+  <!-- Botão de login/logout -->
+  <!-- Botão de login/logout -->
+  <!-- Botão de login/logout -->
+  <!-- Botão de login/logout -->
+  <div class="flex flex-col md:flex-row items-end md:items-center gap-2 mt-2 md:mt-0">
+    {% if session.usuario %}
+      <p class="text-xs md:text-sm text-blue-800 text-right font-bold">
+        Olá, {{ session.usuario }}
+      </p>
+      <a href="{{ url_for('logout') }}" class="border border-blue-800 px-3 py-1 rounded-full text-blue-800 hover:bg-blue-800 hover:text-white transition text-sm font-bold">
+        Sair
+      </a>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="border border-blue-800 px-3 py-1 rounded-full text-blue-800 hover:bg-blue-800 hover:text-white transition text-sm font-bold">
+        Entrar
+      </a>
+    {% endif %}
+  </div>
+
+
+
+</header>
