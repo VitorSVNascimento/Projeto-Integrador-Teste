@@ -13,16 +13,16 @@ import os
 app = Flask(__name__)
 app.secret_key = 'admin123' 
 # Cria a pasta de log
-if not os.path.exists('logs'):
-    os.mkdir('logs')
+# if not os.path.exists('logs'):
+#     os.mkdir('logs')
 
 # Configura o arquivo de log
-file_handler = RotatingFileHandler('logs/erro.log', maxBytes=10240, backupCount=3)
-file_handler.setLevel(logging.ERROR)
-file_handler.setFormatter(logging.Formatter(
-    '%(asctime)s [%(levelname)s] %(message)s [em %(pathname)s:%(lineno)d]'
-))
-app.logger.addHandler(file_handler)
+# file_handler = RotatingFileHandler('logs/erro.log', maxBytes=10240, backupCount=3)
+# file_handler.setLevel(logging.ERROR)
+# file_handler.setFormatter(logging.Formatter(
+#     '%(asctime)s [%(levelname)s] %(message)s [em %(pathname)s:%(lineno)d]'
+# ))
+# app.logger.addHandler(file_handler)
 
 def login_required(f):
     @wraps(f)
@@ -161,17 +161,17 @@ def processamento():
     return render_template('resultado.html',lista_recomendacao=lista_recomendacao)
 
 def erro_500(e):
-    app.logger.error("Erro 500: %s", e, exc_info=True)
+    # app.logger.error("Erro 500: %s", e, exc_info=True)
     return render_template("erro.html", mensagem="Erro interno do servidor."), 500
 
 @app.errorhandler(404)
 def page_not_found(e):
-    app.logger.error("Erro inesperado: %s", e, exc_info=True)
+    # app.logger.error("Erro inesperado: %s", e, exc_info=True)
     return render_template("erro.html", mensagem="Ocorreu um erro inesperado."), 404
 
 @app.errorhandler(Exception)
 def erro500(e):
-    app.logger.error("Erro inesperado: %s", e, exc_info=True)
+    # app.logger.error("Erro inesperado: %s", e, exc_info=True)
     return render_template("erro.html", mensagem="Ocorreu um erro inesperado."), 500
 
 
