@@ -98,6 +98,10 @@ def formulario():
 def sobre():
     return render_template('sobre.html')
 
+@app.route("/teste")
+def teste():
+    return render_template('teste.html')
+
 # função para remover acentos na busca 
 def remover_acentos(texto):
     return unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
