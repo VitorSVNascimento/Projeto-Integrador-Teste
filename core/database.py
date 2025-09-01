@@ -12,9 +12,10 @@ usuario = 'postgres'
 senha = '12345678'
 host = 'localhost' # ou o IP do servidor, caso não seja local
 banco = 'testeprojeto'
-# String de conexão
+# Pega a URL do banco (Render já fornece essa variável no painel)
 DATABASE_URL = os.getenv('BD_CONNECTION_STRING')
-# Cria a engine que faz a conexão com o banco
+
+# Cria engine com SSL habilitado
 engine = create_engine(DATABASE_URL)
-# Cria uma fábrica de sessões para interagir com o banco
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

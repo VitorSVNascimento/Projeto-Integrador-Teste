@@ -33,10 +33,10 @@ class CareerAdvisor:
             Perguntas do questionário:
 
             O que você mais gosta de fazer no seu tempo livre?
-            A) Resolver quebra-cabeças, jogos de lógica ou programar
-            B) Ajudar amigos a resolverem problemas pessoais
-            C) Criar desenhos, músicas ou escrever histórias
-            D) Fazer experiências, observar a natureza ou ler sobre ciência
+            A) Explorar tecnologia, resolver desafios de lógica ou programar pequenos projetos
+            B) Passar tempo com amigos, conversar ou participar de atividades sociais
+            C) Criar artes, escrever histórias, desenhar ou tocar instrumentos
+            D) Fazer experimentos, observar a natureza ou ler sobre ciência e curiosidades
 
             Qual das atividades abaixo parece mais divertida para você?
             A) Resolver desafios de lógica ou montar estratégias em jogos

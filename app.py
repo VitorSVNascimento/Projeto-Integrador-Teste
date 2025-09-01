@@ -4,6 +4,7 @@ from functools import wraps
 from carrerAdvisor import CareerAdvisor
 from cursoresposta import CursoResposta
 from listaCurso import ListaCurso
+from core.database import Base, engine
 import Dao.CursoDAO as cursoDAO
 import unicodedata
 import os
@@ -65,6 +66,8 @@ def erro():
 @app.route("/upload", methods=["POST"])
 @login_required
 def upload():
+
+
     if 'planilha' not in request.files:
         return 'Nenhum arquivo enviado', 400
 
@@ -178,4 +181,5 @@ def erro500(e):
 
 
 if __name__ == "__main__":
+    Base.metadata.create_all(bind=engine)
     app.run(debug=False, host="0.0.0.0")
