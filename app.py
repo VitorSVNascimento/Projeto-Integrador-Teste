@@ -44,7 +44,7 @@ def login():
         usuario = request.form["usuario"]
         senha = request.form["senha"]
 
-        if usuario == "admin@senac.com" and senha == "123":
+        if usuario == os.getenv('USER_BD') and senha == os.getenv('PASS_BD'):
             session["usuario"] = usuario
             return redirect(url_for("index"))
         else:
