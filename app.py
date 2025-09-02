@@ -85,7 +85,7 @@ def upload():
     cursoDAO.deletar_todos_os_cursos()
     cursoDAO.inserir_multiplos_cursos(lista_cursos.dicionario)
 
-    return render_template('planilha.html')
+    return render_template('planilha.html', mensagem="Planilha enviada com sucesso!")
 
 
 @app.route("/planilha")
